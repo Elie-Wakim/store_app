@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <random>
 #include <cmath>
+#include <filesystem>
 #include "class.h"
 using std::cin,std::cout,std::string;
 template <typename T>
@@ -231,6 +232,10 @@ void closing(){
     write_checker.close();
 }
 int main() { 
+    if (!std::filesystem::exists("data"))
+    {
+        std::filesystem::create_directories("data");
+    }
     cout << std::fixed << std::setprecision(2);
     std::vector<item> items;
     std::vector<customer> customers;
@@ -570,4 +575,5 @@ if (user_input_int == 0)
     cin.get();
 }
 }
+
 }
